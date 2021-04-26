@@ -1,13 +1,3 @@
-// const readline = require('readline').createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-// });
-
-// readline.question("Hit enter to see solution.", (arr) => {
-//     // console.log(...arr);
-//     console.log("done");
-//     readline.close();
-// })
 
 var arguments = process.argv
 
@@ -17,12 +7,20 @@ var arguments = process.argv
 //     }
 // }
 const phoneticInt = args => {
-    console.log("hello");
+    let numberMapping = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+    let result = ""
+
+    for (let i = 2; i < args.length; i++) {
+        let numStr = "" + args[i]
+
+        for (let j = 0; j < numStr.length; j++) {
+            let numChar = numStr.charAt(j)
+
+            result += numberMapping[numChar]
+        }
+        result += ","
+    }
+    return result.substring(0, result.length - 1)
 }
 
-var result = phoneticInt(arguments)
-
-console.log(result)
-
-
-// phoneticInt();
+console.log(phoneticInt(arguments))
