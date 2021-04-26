@@ -1,12 +1,8 @@
-
 var arguments = process.argv
 
-// function add() {
-//     for (let i = 0; i < args.length; i++) {
-//         console.log(args[i]);
-//     }
-// }
 const phoneticInt = args => {
+    // For every number in args, loop through the number's digits, 
+    // append to result string the numbers' phonetic representation from numberMapping.
     let numberMapping = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
     let result = ""
 
@@ -21,6 +17,9 @@ const phoneticInt = args => {
         result += ","
     }
     return result.substring(0, result.length - 1)
+
+    // Runtime: O(n * m), where n = # of arguments provided and m = # of digits in the longest number.
+    // Space: O(1), since the numberMapping does not grow.
 }
 
 console.log(phoneticInt(arguments))
